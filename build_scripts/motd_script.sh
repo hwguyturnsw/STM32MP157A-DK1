@@ -1,5 +1,6 @@
 #!/bin/bash
 #Post build script to embed version with buildroot image as Linux MOTD
+####****ONLY WORKS FROM TRUNK BUILDROOT DIRECTORY AS BUILDROOT RUNS****####
 /bin/bash ../../build_scripts/version.sh
 echo "Making MOTD..."
 echo "Going back to find version numbers in buildroot..."
@@ -11,7 +12,7 @@ ubootversion=$(cat .config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 build=$(cat ../../build_scripts/build)
 major="0"
 minor="1"
-svnrev="223344"
+gitHEAD=$(git rev-parse HEAD)
 
 
 #Go back overlay area
@@ -23,7 +24,8 @@ echo "" > motd
 echo "" >> motd
 echo "****************************************" >> motd
 echo "Welcome to the STM32 Buildroot Image" >> motd
-echo "Version: $major.$minor.$build.$svnrev" >> motd
+echo "Version: $major.$minor.$build" >> motd
+echo "Github ID: $gitHEAD" >> motd
 echo "Build Date: "$(date -u) >> motd
 echo "Build Machine: "$(hostname) >> motd
 echo "Linux Kernel: $kernelversion" >> motd
