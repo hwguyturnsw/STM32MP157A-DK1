@@ -22,7 +22,7 @@ cd board/stmicroelectronics/stm32mp157a-dk1/overlay/etc
 #Make the motd file itself
 echo "" > motd
 echo "" >> motd
-echo "****************************************" >> motd
+echo "***************************************************" >> motd
 echo "Welcome to the STM32 Buildroot Image" >> motd
 echo "Version: $major.$minor.$build" >> motd
 echo "Github ID: $gitHEAD" >> motd
@@ -31,7 +31,7 @@ echo "Build Machine: "$(hostname) >> motd
 echo "Linux Kernel: $kernelversion" >> motd
 echo "U-Boot: $ubootversion" >> motd
 echo "Arch: ARMv71 - Cortex A7" >> motd
-echo "****************************************" >> motd
+echo "***************************************************" >> motd
 echo "" >> motd
 echo "" >> motd
 echo "Done!"
