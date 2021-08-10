@@ -42,3 +42,6 @@ Password (root & user): test1234
 -  openssl  
 -  openssl binary  
 -  openssl additional engines  
+
+
+testing gpg
