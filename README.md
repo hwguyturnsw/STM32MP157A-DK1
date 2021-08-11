@@ -22,5 +22,8 @@ Run "make" from trunk/buildroot-2021.02.1 directory or specific branch directory
 
 Feel free to create an issue if there are problems and I will get to them as soon as I can.
 
+Signatures can be verified by my public key here:
+https://keys.openpgp.org/vks/v1/by-fingerprint/8D4CCC65EDC4E2DA6A6BE571822932C729F9B6D2
+
 Thanks,
 ejc
