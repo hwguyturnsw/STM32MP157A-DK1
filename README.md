@@ -17,29 +17,10 @@ Shell: Bash
 Users: root, user  
 Password (root & user): test1234  
   
--Packages:  
--  Busybox  
--  autofs  
--  e2fsprogs  
--    fsck  
--    resize2fs  
--  dropbear  
--  getsftpserver  
--  ifupdown scripts  
--  urandom-initscripts  
--  zsh  
--  neofetch  
--  sudo  
--  which  
--  htop  
--  tar  
--  util-linux  
--    basic set  
--  nano  
-  
--Libraries:  
--  zlib  
--  openssl  
--  openssl binary  
--  openssl additional engines  
 
+Run "make" from trunk/buildroot-2021.02.1 directory or specific branch directory and write sd.img from builroot-2021.02.1/output/images to SD card.
+
+Feel free to create an issue if there are problems and I will get to them as soon as I can.
+
+Thanks,
+ejc
