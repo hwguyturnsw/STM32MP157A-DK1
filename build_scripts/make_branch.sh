@@ -9,5 +9,12 @@ cd ../branches
 mkdir stm32_${version}_branch && cd "$_"
 echo $(date -u) > version.txt
 echo "STM32 Trunk Version: ${version}" >> version.txt
-rsync -ah --progress ../../trunk/buildroot-2021.02.1/* ./buildroot-2021.02.1
+cd ../../trunk
+tar -czvf ${version}_branch.tar.gz *
+mv ${version}_branch* ../branches/stm32_${version}_branch
+cd ../branches/stm32_${version}_branch
+sha256sum *.* > sha256sums.txt
+gpg --detach-sign ${version}_branch.tar.gz
+gpg --detach-sign sha256sums.txt
+gpg --detach-sign version.txt
 echo "Done"
