@@ -10,7 +10,10 @@ cd ../releases
 mkdir stm32_${version}
 cd ../trunk/buildroot-2021.02.1/output/images
 tar -czvf stm32_${version}_${creation_date}_signed.tar.xz *
+sha256sum * > sha256sums.txt
 echo "Signing release..."
 gpg --detach-sign stm32_*_signed.tar.xz
-mv stm32_${version}_${creation_date}_signed* ../../../../releases/stm32_${version}
+gpg --detach-sign sha256sums.txt
+mv stm32_${version}_${creation_date}_signed* ../../../../releases/stm32_${version}_test
+mv sha256sums* ../../../../releases/stm32_${version}
 echo "Done"
