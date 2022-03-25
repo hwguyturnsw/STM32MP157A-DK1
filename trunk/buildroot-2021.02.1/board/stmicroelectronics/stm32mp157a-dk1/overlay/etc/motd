@@ -2,12 +2,12 @@
 
 ***************************************************
 Welcome to the STM32 Buildroot Image
-Version: 0.1.9
-Github ID: 83e7689f82b34ff8c7682e731b3ff564c8a5404c
-Build Date: Tue Aug 10 03:03:11 UTC 2021
+Version: 0.1.15
+Github ID: 453e55114a0d85d744c043b5ecbcafa422962ae5
+Build Date: Fri Mar 25 19:17:54 UTC 2022
 Build Machine: ECS-buildmachine-CentOS8
-Linux Kernel: 5.8.13
-U-Boot: 2020.07
+Linux Kernel: 5.10.25
+U-Boot: 2021.01
 Arch: ARMv71 - Cortex A7
 ***************************************************
 

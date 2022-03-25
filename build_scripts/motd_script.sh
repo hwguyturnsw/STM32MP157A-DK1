@@ -1,10 +1,13 @@
 #!/bin/bash
-#Post build script to embed version with buildroot image as Linux MOTD
-####****ONLY WORKS FROM TRUNK BUILDROOT DIRECTORY AS BUILDROOT RUNS****####
-/bin/bash ../../build_scripts/version.sh
+#Pre build script to embed version with buildroot image as Linux MOTD
+#Buildroot Version Numbering
+build=$(cat build)
+((build++))
+echo $build > build
+
 echo "Making MOTD..."
 echo "Going back to find version numbers in buildroot..."
-
+cd ../trunk/buildroot-2021.02.1/
 #Version Variables
 kernelversion=$(cat .config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 ubootversion=$(cat .config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
@@ -34,4 +37,5 @@ echo "Arch: ARMv71 - Cortex A7" >> motd
 echo "***************************************************" >> motd
 echo "" >> motd
 echo "" >> motd
+cd ../../../../../../../build_scripts
 echo "Done!"

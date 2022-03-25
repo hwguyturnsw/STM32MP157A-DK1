@@ -5,6 +5,8 @@
 #
 #echo "Prerequisites..."
 #eval $(perl -Mlocal::lib=--deactivate-all)
+echo "Making Versions..."
+bash ./motd_script.sh
 echo "Making buildroot..."
 cd ../trunk/buildroot-2021.02.1
 echo "Running make clean..."

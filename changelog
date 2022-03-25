@@ -1,0 +1,8 @@
+03.25.2022
+-Update Linux Kernel to latest - 5.10 (Issue #12.)
+-Update uBoot to latest - 2021.01 (Issue #12.)
+-Made eth0 interface use dhcp (Issue #3.)
+-Added Partition Utilities (Target Packages, System Tools, util-linux, partition_utilites.) (Issue #1.)
+-Trying to figure out expanding filesystem to take up entire SD card (Issue #1.)
+-Removed version.sh from build scripts (Issue #13.)
+-Modified motd_script.sh to be called before buildroot runs because the version number was always a build behind when run from buildroot's post scripts. (Issue #13.)

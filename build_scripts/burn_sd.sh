@@ -2,6 +2,10 @@
 #
 #Write SD card for STM32 buildroot image.
 #
+if ! id | grep -q root; then
+	echo "Must be run as root"
+	exit
+fi
 lsblk
 echo "Only use this if you set the output file of dd!"
 #It's sdc on my machine. It very well may be different on yours
