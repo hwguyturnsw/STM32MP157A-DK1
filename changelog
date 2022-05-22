@@ -6,3 +6,20 @@
 -Trying to figure out expanding filesystem to take up entire SD card (Issue #1.)
 -Removed version.sh from build scripts (Issue #13.)
 -Modified motd_script.sh to be called before buildroot runs because the version number was always a build behind when run from buildroot's post scripts. (Issue #13.)
+
+03.26.2022
+-Make udev rules in overlay etc folder for automounting usb disks to /media/*drive* (Issue #2.)
+-Updated "burn_sd.sh" to show more warnings and be more verbose about what it is doing. (Issue #14.)
+-Fixed uBoot stm32mp15_trusted line in buildroot configuration. (Issue #15.)
+-Updated ARM Trusted Firmware to v2.4. (Issue #12.)
+-Revert all updates from Issue #12 (Linux Kernel, uBoot, and ATF.)
+
+03.31.2022
+-Made a script from tested run of fdisk commands to expand the root filesystem to the maximum disk space available on the sd card.
+
+05.21.2022
+-Edited make_release.sh and make_branch.sh script to create a meta file with information regarding the release and create checksum files, signing all with GPG.
+-Added more hash functions to release files...(SHA512, Whirlpool, SHA3-512, and TIGER)
+-Added SHA512 and SHA3-512. SHA was developed by the NSA and that's fine, most people accept SHA checksums but I am adding others as well.
+-Added Whirlpool because it was developed in part by Vincent Rijmen.
+-Added TIGER-192,3 hash as well since that was developed in part by Ross Anderson and I respect him as a security reasearcher and developer.
