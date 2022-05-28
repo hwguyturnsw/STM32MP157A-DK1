@@ -19,6 +19,6 @@ read -n1 -r -p "Press any non-NUL character to continue...CTRL+C to exit..." key
 #Generate release tag...
 ##################################################
 git tag -s v$version -m "stm32_$version"
-git tag --verify 
+git tag --verify v$version
 git push --tags origin
 echo "Done!"
