@@ -1,12 +1,12 @@
 This readme.txt file is to document the build_scripts directory and explain what each files does.
 First Created: ejc - 08.18.2021
-Last Modified: ejc - 05.21.2022
+Last Modified: ejc - 05.27.2022
 
 -build
     -This file is for the build process and keeps track of how many builds have been processed or built.
 
 -build_buildroot.sh
-    -This script is for running the build process. Once other software is integrated into this repository this will probably change to "build_all.sh"
+    -This script is for running the build process. Added checks for prerequisites that buildroot needs. Once other software is integrated into this repository this will probably change to "build_all.sh"
 
 -burn_sd.sh
     -This script is for automating the process to burn the sd card image. DO NOT use this file unless you manually change the sdX file that your sd card resides in. Issue #6 shall render this warning useless because I want to eventually have this script automatically find the sd card.

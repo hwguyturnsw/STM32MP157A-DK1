@@ -23,3 +23,6 @@
 -Added SHA512 and SHA3-512. SHA was developed by the NSA and that's fine, most people accept SHA checksums but I am adding others as well.
 -Added Whirlpool because it was developed in part by Vincent Rijmen.
 -Added TIGER-192,3 hash as well since that was developed in part by Ross Anderson and I respect him as a security reasearcher and developer.
+
+05.27.2022
+-Added prerequisites check in build_buildroot.sh for packages that buildroot needs. (Issue #11.)
