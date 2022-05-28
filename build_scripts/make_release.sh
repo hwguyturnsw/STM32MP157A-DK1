@@ -113,4 +113,10 @@ gpg --detach-sign sha256-checksums.txt
 gpg --detach-sign sha512-checksums.txt
 gpg --detach-sign sha3-512-checksums.txt
 gpg --detach-sign tiger-192-3-checksums.txt
+##################################################
+#Generate release tag...
+##################################################
+git tag -s $version -m "stm32_$version"
+git tag --verify 
+git push --tags origin
 echo "Done"
