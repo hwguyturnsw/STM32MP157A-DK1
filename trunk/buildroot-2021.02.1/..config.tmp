@@ -2893,7 +2893,7 @@ endif
 ifneq "$(HOSTARCH)" "x86_64"
 /home/ejc/STM32MP157A-DK1/trunk/buildroot-2021.02.1/output/build/buildroot-config/auto.conf: FORCE
 endif
-ifneq "$(BR2_VERSION_FULL)" "v0.1.9-12-gb5b760b-dirty"
+ifneq "$(BR2_VERSION_FULL)" "v0.1.9-14-g62e6f45-dirty"
 /home/ejc/STM32MP157A-DK1/trunk/buildroot-2021.02.1/output/build/buildroot-config/auto.conf: FORCE
 endif
 

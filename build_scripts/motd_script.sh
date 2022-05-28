@@ -25,6 +25,28 @@ cd board/stmicroelectronics/stm32mp157a-dk1/overlay/etc
 #Make the motd file itself
 echo "" > motd
 echo "" >> motd
+echo "*****************************************" >> motd
+echo "This software is licensed under" >> motd
+echo "GNU GENERAL PUBLIC LICENSE" >> motd
+echo "Version 2, June 1991">> motd
+echo "You are free to use and re-distribute" >> motd
+echo "but there is no implied warranty by any" >> motd
+echo "of the developers of this software or any" >> motd
+echo "of the software contained within." >> motd
+echo "This is a development platflorm for the" >> motd
+echo "STM32MP157-DK1 development board" >> motd
+echo "*****************************************" >> motd
+echo "" >> motd
+echo "************************************************************************************" >> motd
+echo "   _____ _______ __  __ ____ ___  __  __ _____  __ _____ ______      _____  _  ____ " >> motd
+echo "  / ____|__   __|  \/  |___ \__ \|  \/  |  __ \/_ | ____|____  |    |  __ \| |/ /_ |" >> motd
+echo " | (___    | |  | \  / | __) | ) | \  / | |__) || | |__     / /_____| |  | | ' / | |" >> motd
+echo "  \___ \   | |  | |\/| ||__ < / /| |\/| |  ___/ | |___ \   / /______| |  | |  <  | |" >> motd
+echo "  ____) |  | |  | |  | |___) / /_| |  | | |     | |___) | / /       | |__| | . \ | |" >> motd
+echo " |_____/   |_|  |_|  |_|____/____|_|  |_|_|     |_|____/ /_/        |_____/|_|\_\|_|" >> motd
+echo "                                                                                    " >> motd
+echo "************************************************************************************" >> motd
+echo "" >> motd
 echo "***************************************************" >> motd
 echo "Welcome to the STM32 Buildroot Image" >> motd
 echo "Version: $major.$minor.$build" >> motd

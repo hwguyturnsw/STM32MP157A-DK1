@@ -25,7 +25,44 @@ Run <i>"build_buildroot.sh"</i> from <i><b>build_scripts</b></i> directory or sp
 There is a build script for this but please change the output file to the SD card in the script for your particular machine.  
 
 Feel free to create an issue if there are problems and I will get to them as soon as I can.  
-  
+
+An expand root filesystem script was created and added. "/etc/expand_rootfs.sh"
+To run this script enter the following commands as root. A reboot is necessary after the commands are run.  
+```
+chmod +x /etc/expand_rootfs.sh
+/etc/./expand_rootfs.sh
+reboot now
+```
+This is what ```lsblk``` and ```df -h``` should look like after expanding (with a 16GB SD card...for reference.)
+```
+root@STM32:~# lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+mmcblk0     179:0    0  14.9G  0 disk
+|-mmcblk0p1 179:1    0 199.5K  0 part
+|-mmcblk0p2 179:2    0 199.5K  0 part
+|-mmcblk0p3 179:3    0   862K  0 part
+`-mmcblk0p4 179:4    0  14.9G  0 part /
+root@STM32:~# df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                14.4G     39.9M     13.8G   0% /
+devtmpfs                137.1M         0    137.1M   0% /dev
+tmpfs                   201.6M         0    201.6M   0% /dev/shm
+tmpfs                   201.6M     28.0K    201.5M   0% /tmp
+tmpfs                   201.6M    112.0K    201.5M   0% /run
+```
+
+An enable file exists to allow the script to be run. Once it has been run it cannot run again unless that file exists.  
+This is to prevent the script from running again unnecessarily (If I can get it to run automatically from init.d) a "run once" if you will.  
+See below for what you will encounter if you try and run the script again.  
+
+```
+root@STM32:~# /etc/./expand_rootfs.sh
+Attempting Expand Rootfs...
+Checking Enable File...
+File NOT found! - Skipping expansion of root filesystem...
+resize2fs 1.45.6 (20-Mar-2020)
+The filesystem is already 15610608 (1k) blocks long.  Nothing to do!
+```
 # Documentation  
 Please read the buildroot manual before creating issues with building:  
 https://buildroot.org/downloads/manual/manual.html  

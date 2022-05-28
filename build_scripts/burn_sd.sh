@@ -9,16 +9,22 @@ if ! id | grep -q root; then
 	echo "Must be run as root"
 	exit
 fi
-echo " "
+echo ""
+echo "*************************************************************************"
 echo "Here's the output from 'lsblk' check to make sure you're sd card is here!"
-echo " "
+echo "*************************************************************************"
+echo ""
 lsblk
-echo " "
+echo ""
+echo "***********************************************"
 echo "Only use this if you set the output file of dd!"
 echo "I'm going to use '$sd_mount_point'"
+echo "***********************************************"
 #It's sdc on my machine. It very well may be different on yours
-echo " "
+echo ""
+echo "****************************"
 echo "Are you ready to use '$sd_mount_point' ?"
+echo "****************************"
 read -n1 -r -p "Press any non-NUL character to continue...CTRL+C to exit..." key
 cd ../trunk/buildroot-2021.02.1
 sudo dd if=output/images/sdcard.img of=/dev/$sd_mount_point
