@@ -3,7 +3,7 @@
 *****************************************
 This software is licensed under
 GNU GENERAL PUBLIC LICENSE
-Version 2, June 1991
+GPL V2, June 1991
 You are free to use and re-distribute
 but there is no implied warranty by any
 of the developers of this software or any
@@ -24,9 +24,9 @@ STM32MP157-DK1 development board
 
 ***************************************************
 Welcome to the STM32 Buildroot Image
-Version: 0.1.25
-Github ID: 62e6f452a05ca0398133f67e6abe50fa4f8d7b7a
-Build Date: Sat May 28 03:30:44 UTC 2022
+Version: 0.1.26
+Github ID: f8e448ff36bdaaead5d814143391e17bef38f4d1
+Build Date: Sat May 28 04:48:15 UTC 2022
 Build Machine: ECS-buildmachine-CentOS8
 Linux Kernel: 5.8.13
 U-Boot: 2020.07

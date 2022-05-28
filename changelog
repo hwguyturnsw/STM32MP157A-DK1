@@ -26,3 +26,11 @@
 
 05.27.2022
 -Added prerequisites check in build_buildroot.sh for packages that buildroot needs. (Issue #11.)
+
+05.28.2022
+-Add RHEL specifics text in readme. (Issue #16.)
+-Add license text to motd. (Issue #17.) 
+-Add some stars to the echos from burn_sd.sh (Issue #18.) 
+-Added text in README.MD with instructions on how to run expand_rootfs.sh
+-MOTD GPL Version 2 breaks make_release and make_branch scripts (Issue #19.)
+-Added archive directories for branches and releases (Issue #20.)

@@ -28,7 +28,7 @@ echo "" >> motd
 echo "*****************************************" >> motd
 echo "This software is licensed under" >> motd
 echo "GNU GENERAL PUBLIC LICENSE" >> motd
-echo "Version 2, June 1991">> motd
+echo "GPL V2, June 1991">> motd
 echo "You are free to use and re-distribute" >> motd
 echo "but there is no implied warranty by any" >> motd
 echo "of the developers of this software or any" >> motd
