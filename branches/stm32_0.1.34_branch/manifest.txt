@@ -1,0 +1,38 @@
+Manifest: Mon Jun 20 04:28:05 UTC 2022
+
+**********************
+STM32 Version: 0.1.34
+Build Date 06.20.2022
+**********************
+
+ECS Build Machine Information: 
+***************************************************
+Machine ID: dd814c118d7f4ef2be270ff7d8a996ec
+User and Hostname: ejc @ ECS-buildmachine-CentOS8
+Date: Mon Jun 20 04:28:05 UTC 2022
+RedHat Release Name: CentOS Stream release 8
+Kernel Version: 4.18.0-394.el8.x86_64
+***************************************************
+
+File Hashes: 
+***************************************************************************************************************************************************
+SHA-256 Hashes: 
+aa1fccdb1cb66278eb0025c8f4e096b42c58285655b49864e107519bffa376cf  0.1.34_branch.tar.gz
+8a4016fbae7b2cf24572077ccc35d50d9f1e9baf5564554db5fe2d2fa53251d5  0.1.34_branch.tar.gz.sig
+
+SHA-512 Hashes: 
+08249288fed62ec8dcae7dacd871c6f6811406f93b3657a421bd88b805309971008985229c507c789d725725ad1618cf3a355598298cd955f59988f814b96aed  0.1.34_branch.tar.gz
+d92c9d741a2e1416c1668e2c934d93f6e9d6a79dc2d6c8650aeab98627da9d909986e96c2ffe42c4148313dbce7fc68952cccb34a0ddebb209db1f6a3fc1ef86  0.1.34_branch.tar.gz.sig
+
+SHA3-512 Hashes: 
+8723f8a87ebae2ddcaae678ad411daaddd4324052eabd585b11c1066848b0c82b49dc4bb8fb9aaf035532da9fcb7b8368cd1defc51276ff51809c6323d9fa24e  0.1.34_branch.tar.gz
+5996f8d52cace2b02cf40f081ce55307b794f57dfaf107ea8174e4f64415821402aa8561718a3a7848a8dcf224e8d91436ae7117f7290f8d1f3728eb6321240f  0.1.34_branch.tar.gz.sig
+
+Whirlpool Hashes: 
+166c963859a7e4fc400e348df95f0dec930626434066b9ccddbbdf02369023dfd328804e4fde4ff8ba1c345f179019bb620daa297227d119326a4b139d0d2d50  0.1.34_branch.tar.gz
+50bee8f256d630cf10d596f13c057b25e66536dca82c532b44cbfcdd9c0b07038753f19623c10bf91cd816f15bd18a225a628a0aaf900530b979116dc8459109  0.1.34_branch.tar.gz.sig
+
+TIGER-192-3 Checksums: 
+6de0d6e0ca753f5df665d282b0713dd012b1f966cc7c575e  0.1.34_branch.tar.gz
+b497c05a4067555a82b126a070aee423b2a1a36d3f5a07bd  0.1.34_branch.tar.gz.sig
+***************************************************************************************************************************************************
