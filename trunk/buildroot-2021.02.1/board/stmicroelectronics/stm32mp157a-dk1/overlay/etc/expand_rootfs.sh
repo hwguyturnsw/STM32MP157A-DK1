@@ -27,8 +27,7 @@ p
 w
 EOF
 rm /etc/expand_rootfs_en
-
+resize2fs /dev/mmcblk0p4
 else
 	echo "File NOT found! - Skipping expansion of root filesystem..."
 fi
-resize2fs /dev/mmcblk0p4

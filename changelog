@@ -34,3 +34,11 @@
 -Added text in README.MD with instructions on how to run expand_rootfs.sh
 -MOTD GPL Version 2 breaks make_release and make_branch scripts (Issue #19.)
 -Added archive directories for branches and releases (Issue #20.)
+
+06.19.2022
+-Updated Linux config file to give Linux the necessary drivers and handling for USB devices. (Issue #2)
+-Added mdev package to Buildroot system. (Issue #2)
+-Changed order of operations in expand_rootfs.sh script. (Issue #23)
+-Updated README.MD for RHEL based dev system. (Issue #24)
+-Added postbuild.sh build script and added description in build_scrips/readme.txt. (Issue #25)
+Updated README.MD for version number fix. (Issue #26)

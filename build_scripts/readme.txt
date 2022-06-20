@@ -25,5 +25,8 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
 -motd_script.sh
     -This script is how I create the software version information. It parses the various versions of the ARM trusted firmware, Linux kernel, UBoot and others to put in the motd. Variables from this script go into motd_script.sh.When a build is processed this goes into the motd of the Linux filesystem and is shown to you at bootup. Heavily relies on the build file and version.sh. This is a post build script in buildroot to embed version with buildroot image as Linux MOTD ####****ONLY WORKS FROM TRUNK BUILDROOT DIRECTORY AS BUILDROOT RUNS****####
 
+-post-build.sh
+    -This script is how I modify files in the root filesystem before the system images are created. Currently this is under development and is not called by buildroot or any other script.
+
 -version.sh - Deprecated!
     -This script only increments the number in the build file. This is how I keep track of how many builds I've made and is part of the version number in motd_script.sh which relies on this script. It can be run individually but is called when motd_script.sh run as a post build script during the buildroot build process.

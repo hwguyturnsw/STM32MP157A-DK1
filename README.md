@@ -8,8 +8,8 @@ No warranty is implied by me, Buildroot, or UBoot.
   
 # Basic Information
 Arch: ARM-Cortex-A7  
-Kernel: v5.10.25  
-UBoot: v2021.01  
+Kernel: v5.8.13  
+UBoot: v2020.07   
 ARM Trusted Firmware: v2.2  
 Filesystem: EXT4  
 RootFS Size: 256M  
@@ -17,8 +17,10 @@ Password Encoding: SHA256
 Shell: Bash  
 Users: root, user  
 Password (root & user): test1234  
-  
-  
+
+# Development System
+Currently the build system that I use is a RHEL based system (CentOS 8 Stream) Some of the build scripts reflect this type of configuration. If you do not have a RHEL based system or would like to build on another system you may have to change some of the build scripts to reflect that change. Please see the readme in the build scripts directory for the necessary changes.  
+ 
 #  Directions
 Run <i>"build_buildroot.sh"</i> from <i><b>build_scripts</b></i> directory or specific branch directory (this will ensure you get the correct version numbers in the motd.) Then write <i><b>sd.img</b></i> from <i><b>../builroot-2021.02.1/output/images</b></i> to SD card using dd or Balena Etcher.  
 
