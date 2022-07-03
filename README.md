@@ -24,7 +24,7 @@ Currently the build system that I use is a RHEL based system (CentOS 8 Stream) S
 #  Directions
 Run <i>"build_buildroot.sh"</i> from <i><b>build_scripts</b></i> directory or specific branch directory (this will ensure you get the correct version numbers in the motd.) Then write <i><b>sd.img</b></i> from <i><b>../builroot-2021.02.1/output/images</b></i> to SD card using dd or Balena Etcher.  
 
-There is a build script for this but please change the output file to the SD card in the script for your particular machine.  
+There is a build script for this but please double check the script picks up the correct device.
 
 Feel free to create an issue if there are problems and I will get to them as soon as I can.  
 
@@ -58,12 +58,10 @@ This is to prevent the script from running again unnecessarily (If I can get it 
 See below for what you will encounter if you try and run the script again.  
 
 ```
-root@STM32:~# /etc/./expand_rootfs.sh
+root@STM32:/etc# ./expand_rootfs.sh
 Attempting Expand Rootfs...
 Checking Enable File...
 File NOT found! - Skipping expansion of root filesystem...
-resize2fs 1.45.6 (20-Mar-2020)
-The filesystem is already 15610608 (1k) blocks long.  Nothing to do!
 ```
 # Documentation  
 Please read the buildroot manual before creating issues with building:  
