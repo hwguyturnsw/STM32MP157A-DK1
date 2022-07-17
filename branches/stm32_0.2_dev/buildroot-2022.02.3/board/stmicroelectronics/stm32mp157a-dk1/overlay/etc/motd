@@ -1,0 +1,36 @@
+
+
+*****************************************
+This software is licensed under
+GNU GENERAL PUBLIC LICENSE
+GPL V2, June 1991
+You are free to use and re-distribute
+but there is no implied warranty by any
+of the developers of this software or any
+of the software contained within.
+This is a development platflorm for the
+STM32MP157-DK1 development board
+*****************************************
+
+************************************************************************************
+   _____ _______ __  __ ____ ___  __  __ _____  __ _____ ______      _____  _  ____ 
+  / ____|__   __|  \/  |___ \__ \|  \/  |  __ \/_ | ____|____  |    |  __ \| |/ /_ |
+ | (___    | |  | \  / | __) | ) | \  / | |__) || | |__     / /_____| |  | | ' / | |
+  \___ \   | |  | |\/| ||__ < / /| |\/| |  ___/ | |___ \   / /______| |  | |  <  | |
+  ____) |  | |  | |  | |___) / /_| |  | | |     | |___) | / /       | |__| | . \ | |
+ |_____/   |_|  |_|  |_|____/____|_|  |_|_|     |_|____/ /_/        |_____/|_|\_\|_|
+                                                                                    
+************************************************************************************
+
+***************************************************
+Welcome to the STM32 Buildroot Image
+Version: 0.2.39
+Github ID: f65b3a123dccd3f6f56eb7bb24c2f9b417dbd45f
+Build Date: Sun Jul 17 01:35:50 AM UTC 2022
+Build Machine: ecs-buildmachine-centos9
+Linux Kernel: 5.15.45
+U-Boot: 2021.10
+Arch: ARMv71 - Cortex A7
+***************************************************
+
+
