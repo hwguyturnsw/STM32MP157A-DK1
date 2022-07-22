@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Build buildroot dev branch for STM32
-#ejc-07.02.2021
+#ejc-07.22.2021
 #
 ##################################################
 #Deactivate the perl extentions if needed...
@@ -167,7 +167,7 @@ ubootversion=$(cat .config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 #svnrev=$(svn info | grep "Revision: " | sed 's/[^0-9]//g')
 build=$(cat dev_build)
 major="0"
-minor="1"
+minor="2"
 gitHEAD=$(git rev-parse HEAD)
 ##################################################
 #Go back overlay area
@@ -229,5 +229,5 @@ echo "Done cleaning..."
 echo "Building..."
 make
 echo "Done processing build!"
-echo "Go burn sd card after build, set sdX with the sd card from lsblk..."
+echo "Go burn sd card after build..."
 cd ../../build_scripts

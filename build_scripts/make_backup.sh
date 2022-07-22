@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 #Make new backup
-#2021-ejc
+#2021-ejc-07.22.2022
 #
 creation_date=$(date +%m.%d.%Y)
-version=$(grep Version ../trunk/buildroot-2021.02.1/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
+version=$(grep Version ../trunk/buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
 cd $HOME/backups
 mkdir stm32_${version}_backup_${creation_date} && cd "$_"
 echo "Backup Date: "$(date -u) > info.txt

@@ -1,6 +1,6 @@
 This readme.txt file is to document the build_scripts directory and explain what each files does.
 First Created: ejc - 08.18.2021
-Last Modified: ejc - 07.21.2022
+Last Modified: ejc - 07.22.2022
 
 Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific lines to your distro of choice.
 
@@ -18,11 +18,18 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
 
     -New functions.
         -Checks for certain packages that are needed for creating a fully formatted SD card.
-        -Checks for devices that could be an SD card (< 32GB in size)
-            -NOTE: Check carefully before letting this script run wild because if you have other flash media plugged in it could grab one of those and write the image to it. Be sure to remove all other flash media before running. Only have the SD card you want to write this image to plugged into the system. The script will tell you what device it will use before continuing so double check before you continue.
+        -Checks for devices that could be an SD card (< 32GB in size.) This can be changes by modifying "max_device_size" in the script.
+            -NOTE: Check carefully before letting this script run wild because if you have other flash media plugged in it could grab one of those and write the image to it. Be sure to remove all other flash media before running. Only have the SD card you want to write this image to plugged into the system. The script will tell you what device it will use before continuing so double check before you continue. - This has been solved by checking for multiple devices. If there are more than one it should exit and tell you why. But please double, and triple check before continuing.
         -Write SD images from various places (trunk, branches, releases, custom directories)
         -Clean the disk (If you have written the SD card and think something else has gone wrong you can delete the disk and start from scratch.)
         -The old burn_sd.sh script will be left as is commented out at the very bottom of the script so it could be used if necessary. (For some reason the new script breaks.) The old warning applies to the old script. Check the output of dd to make sure you are writing to the correct device. Set sd_mount_point accordingly.
+    -Known bugs.
+        -Some SD readers will display two disks essentially for one SD card (I haven't figured out why yet.) This will cause the script to see more than one device and exit.
+        -Internal SD readers that mount SD cards as "mmcblk" devices will not be seen by this script. Until I can figure this out it is recommended to use a USB to SD reader.
+    -Tested Readers.
+        -SABRENT USB3 SD reader (http://sabrent.com/products/CR-UMSS) works fine in RHEL9.
+        -UGreen 2-in-1 USB 3.0 SD/TF Card Reader (https://www.ugreen.com/collections/usb-card-reader/products/usb-3-0-card-reader-with-sd-tf?variant=31772561866814) works fine in RHEL 8 but not in RHEL 9.
+        -Dell Precision 3450 internal SD card reader mounts SD cards as "mmcblk" devices and is not recognized by this script.
 
 -make_backup.sh
     -This script is for making a backup tar.gz of the entire repository and save it to my HOME folder. This is more paranoia than anything. It really won't affect much but I made it for my own peace of mind. It's there, use it if you want to.

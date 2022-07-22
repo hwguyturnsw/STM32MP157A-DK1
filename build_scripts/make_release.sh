@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Make new release
-#2022-ejc
+#2022-ejc-07.22.2022
 #
 ##################################################
 #Variables
@@ -13,7 +13,7 @@ osrelease=$(cat /etc/redhat-release)
 kernelversion=$(uname -r)
 machineid=$(cat /etc/machine-id)
 creation_date=$(date +%m.%d.%Y)
-version=$(grep Version ../trunk/buildroot-2021.02.1/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
+version=$(grep Version ../trunk/buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
 manifestfile=../../../../releases/stm32_${version}/manifest.txt
 checksumsdir=../../../../releases/stm32_${version}/checksums
 ##################################################
@@ -28,7 +28,7 @@ mkdir checksums
 #Creating tar.xz and Signing For Release
 ##################################################
 echo "Creating tar.xz and signing for release..."
-cd ../../trunk/buildroot-2021.02.1/output/images
+cd ../../trunk/buildroot-2022.02.3/output/images
 tar -czvf stm32_${version}_${creation_date}_signed.tar.xz *
 echo "Signing release tar.xz..."
 gpg --detach-sign stm32_*_signed.tar.xz

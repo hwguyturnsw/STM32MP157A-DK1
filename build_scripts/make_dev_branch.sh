@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Make developmental branch
-#2022-ejc
+#2022-ejc-07.22.2022
 #
 ##################################################
 #Variables
@@ -13,7 +13,7 @@ osrelease=$(cat /etc/redhat-release)
 kernelversion=$(uname -r)
 machineid=$(cat /etc/machine-id)
 creation_date=$(date +%m.%d.%Y)
-version=$(grep Version ../trunk/buildroot-2021.02.1/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
+version=$(grep Version ../trunk/buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
 manifestfile=dev_manifest.txt
 ##################################################
 #Make Branch Directory
@@ -23,7 +23,7 @@ mkdir stm32_${version}_branch_dev
 ##################################################
 #Change directory and run Make clean
 ##################################################
-cd ../trunk/buildroot-2021.02.1
+cd ../trunk/buildroot-2022.02.3
 make clean
 rsync -a --info=progress2 --info=name0 ./ ../../branches/stm32_${version}_branch_dev
 cd ../../branches/stm32_${version}_branch_dev

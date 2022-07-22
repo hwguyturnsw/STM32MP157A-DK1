@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Write SD card for STM32 buildroot image and auto resize the rootfs at image write time.
-#ejc-2022
+#ejc-2022-07.22.2022
 ##################################################
 #Check for root or sudo access...
 ##################################################
@@ -76,10 +76,12 @@ echo "Prerequisites check finished. If you made it here you're good!"
 ##################################################
 #Detect SD Card...
 ##################################################
+echo "Looking for removable devices under 32GB in size..."
+echo "You can change line 82 of this script to find SD cards that are bigger."
 #Maximum device size (this helps narrow down results if there are multiple disks connected)
 max_device_size="32.00"
 
-#If it's a disk and it's removeable print the name and size
+#If it's a disk and it's removable print the name and size
 row=`lsblk | awk '{ if($3 == "1" && $6 == "disk") print ""$1, $4"" }'`
 
 #Make sure we only have row
@@ -100,7 +102,7 @@ if [ $((num_results)) -eq 1 ] && [ "${row}" != "/dev/" ] && [ "${row}" != "" ]; 
     echo "Found SD device - ${device_name}"
   else
     #No matching devices
-    echo "No matching devices..."
+    echo "No devices under 32GB installed..."
     exit 1
   fi
 
@@ -108,9 +110,12 @@ else
   #Too many rows!
   if [ -z "${row}" ]; then
     echo "Results were empty!"
+    echo "Doesn't look like you have any removable devices installed."
   fi
   if [ $((num_results)) -ne 1 ]; then
-    echo "$((num_results)) results"
+    echo "$((num_results)) results...exiting..."
+    echo "You may have more than one removable device installed."
+    echo "Check your SD card reader doesn't make two disks (one of which shows as 0B.)"
   fi
   exit 2
 fi
@@ -118,11 +123,12 @@ fi
 #Set the mountpoint for the SD card...
 ##################################################
 sd_mount_point=${device_name}
-echo "*********************************************************"
+echo "***************************************************************"
 echo "I'm going to use '$sd_mount_point'"
 echo "Does that sound right?"
 echo "I will not be responsible for you nuking your filesystem."
-echo "*********************************************************"
+echo "Please read the README file in build_scripts if you are unsure."
+echo "***************************************************************"
 read -n1 -r -p "Press any non-NUL character to continue...CTRL+C to exit..." key
 ##################################################
 #Choose trunk or dev branch SD image...
@@ -137,7 +143,7 @@ select opt in Trunk-Image Dev-Branch-Image Release-Image Custom-Image-Dir Clean-
 			;;
 		"Dev-Branch-Image")
 			echo "You chose Dev-Branch-Image"
-			cd ../branches/stm32_*_branch_dev
+			cd ../branches/stm32_*_branch_dev/buildroot-2022.02.3
 			dd if=output/images/sdcard.img of=/dev/$sd_mount_point status=progress
 			break
 			;;
@@ -150,7 +156,7 @@ select opt in Trunk-Image Dev-Branch-Image Release-Image Custom-Image-Dir Clean-
 			;;
 		"Custom-Image-Dir")
 			echo "You chose Custom-Image-Dir..."
-			read -p "Enter the Directory (absolute path): " img_dir
+			read -p "Enter the Directory Where the Image Resides (absolute path): " img_dir
 				if [ -d "$img_dir" ] 
 					then
 				echo "Found directory, cd there now..." 
@@ -162,11 +168,12 @@ select opt in Trunk-Image Dev-Branch-Image Release-Image Custom-Image-Dir Clean-
 			break
 			;;
 		"Clean-Disk")
-			echo "*********************************************************"
+			echo "***************************************************************"
 			echo "I'm going to use '$sd_mount_point'"
 			echo "Does that sound right?"
 			echo "I will not be responsible for you nuking your filesystem."
-			echo "*********************************************************"
+			echo "Please read the README file in build_scripts if you are unsure."
+			echo "***************************************************************"
 			read -n1 -r -p "Press any non-NUL character to continue...CTRL+C to exit..." key
 			fdisk /dev/$sd_mount_point <<EOF
 d
@@ -177,6 +184,7 @@ d
 3
 d
 
+w
 EOF
 			break
 			;;

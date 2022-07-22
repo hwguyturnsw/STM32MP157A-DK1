@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Build buildroot for STM32
-#ejc-07.21.2022
+#ejc-07.22.2022
 #
 ##################################################
 #Deactivate the perl extentions if needed...
@@ -165,4 +165,4 @@ echo "Done cleaning..."
 echo "Building..."
 make
 echo "Done processing build!"
-echo "Go burn sd card after build, set sdX with the sd card from lsblk..."
+echo "Go burn sd card after build..."
