@@ -10,9 +10,6 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
 -build_buildroot.sh
     -This script is for running the build process. Added checks for prerequisites that buildroot needs. Those checks are specific to RHEL versions of Linux. If using Ubuntu or Debian based distros change the "rpg -qa" to "dpkg -l" Once other software is integrated into this repository this will probably change to "build_all.sh"
 
--build_new_buildroot.sh
-    -Same as build_buildroot.sh but from the stm32_0.2_dev branch directory. Will be deprecated later as it will take place as build_buildroot.sh after v0.2.x is released.
-
 -build_dev_branch.sh
     -This script will build the dev branch made by "make_dev_branch.sh" It is important you only have one dev branch directory in "branches" at a time since this script looks for any folder with "stm32_*_branch_dev" so it doesn't matter what the version number is. If you want to keep old dev branches it is recommended to archive them in a tar.xz/tgz file of some sort before building with "build_dev_branch.sh" This script also has its own motd creation where it will create the motd in the branch folder and append "_dev" to the version information. It will also append a line saying "***This is a dev branch build***" Dev branches will not be committed as they are test areas that would ultimately be merged into the trunk directory if the build passes tests. The built images are not signed and will never be released. If you come across a build that has this information in it please create an issue in GitHub.
 
@@ -41,9 +38,6 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
 
 -motd_script.sh
     -This script is how I create the software version information. It parses the various versions of the ARM trusted firmware, Linux kernel, UBoot and others to put in the motd. Variables from this script go into motd_script.sh.When a build is processed this goes into the motd of the Linux filesystem and is shown to you at bootup.
-
--motd_new_script.sh
-    -Same as motd_script.sh but from the stm32_0.2_dev directory. Will be deprecated later as it will take place as motd_script.sh after v0.2.x is released.
 
 -post-build.sh
     -This script is how I modify files in the root filesystem before the system images are created. Currently this is under development and is not called by buildroot or any other script.

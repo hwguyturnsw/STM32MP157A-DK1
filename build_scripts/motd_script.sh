@@ -7,14 +7,14 @@ echo $build > build
 
 echo "Making MOTD..."
 echo "Going back to find version numbers in buildroot..."
-cd ../trunk/buildroot-2021.02.1/
+cd ../trunk/buildroot-2022.02.3/
 #Version Variables
 kernelversion=$(cat .config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 ubootversion=$(cat .config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 #svnrev=$(svn info | grep "Revision: " | sed 's/[^0-9]//g')
 build=$(cat ../../build_scripts/build)
 major="0"
-minor="1"
+minor="2"
 gitHEAD=$(git rev-parse HEAD)
 
 

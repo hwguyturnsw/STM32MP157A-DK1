@@ -132,7 +132,7 @@ select opt in Trunk-Image Dev-Branch-Image Release-Image Custom-Image-Dir Clean-
 	case $opt in
 		"Trunk-Image")
 			echo "You chose Trunk-Image"
-			dd if=../trunk/buildroot-2021.02.1/output/images/sdcard.img of=/dev/$sd_mount_point status=progress
+			dd if=../trunk/buildroot-2022.02.3/output/images/sdcard.img of=/dev/$sd_mount_point status=progress
 			break
 			;;
 		"Dev-Branch-Image")

@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Build buildroot for STM32
-#ejc-05.27.2021
+#ejc-07.21.2022
 #
 ##################################################
 #Deactivate the perl extentions if needed...
@@ -158,7 +158,7 @@ bash ./motd_script.sh
 #Change directory to buildroot, clean and make...
 ##################################################
 echo "Making buildroot..."
-cd ../trunk/buildroot-2021.02.1
+cd ../trunk/buildroot-2022.02.3
 echo "Running make clean..."
 make clean
 echo "Done cleaning..."

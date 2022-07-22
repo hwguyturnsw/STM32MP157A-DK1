@@ -8,9 +8,9 @@ No warranty is implied by me, Buildroot, or UBoot.
   
 # Basic Information
 Arch: ARM-Cortex-A7  
-Kernel: v5.8.13  
-UBoot: v2020.07   
-ARM Trusted Firmware: v2.2  
+Kernel: v5.15.45  
+UBoot: v2021.10   
+ARM Trusted Firmware: v2.5  
 Filesystem: EXT4  
 RootFS Size: 256M  
 Password Encoding: SHA256  
@@ -35,7 +35,7 @@ NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 sda           8:0    1     0B  0 disk 
 sdb           8:16   1  14.9G  0 disk 
 ```
-You may have to try another card reader, or run the dd command manually.
+You may have to try another card reader, or run the dd command manually.  
 
 An expand root filesystem script was created and added. "/etc/expand_rootfs.sh"
 To run this script enter the following commands as root. A reboot is necessary after the commands are run.  
