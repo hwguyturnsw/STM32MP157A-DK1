@@ -24,9 +24,9 @@ STM32MP157-DK1 development board
 
 ***************************************************
 Welcome to the STM32 Buildroot Image
-Version: 0.2.39
-Github ID: f65b3a123dccd3f6f56eb7bb24c2f9b417dbd45f
-Build Date: Sun Jul 17 01:35:50 AM UTC 2022
+Version: 0.2.41_dev
+Github ID: c73e7312069f26efcb4e099dd7f98f56746b2bc0
+Build Date: Thu Jul 21 11:56:00 PM UTC 2022
 Build Machine: ecs-buildmachine-centos9
 Linux Kernel: 5.15.45
 U-Boot: 2021.10

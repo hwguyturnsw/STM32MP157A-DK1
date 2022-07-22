@@ -28,6 +28,15 @@ There is a build script for this but please double check the script picks up the
 
 Feel free to create an issue if there are problems and I will get to them as soon as I can.  
 
+If you get a response of 2 devices from burn_sd.sh and your lsblk command looks like this...  
+```
+$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1     0B  0 disk 
+sdb           8:16   1  14.9G  0 disk 
+```
+You may have to try another card reader, or run the dd command manually.
+
 An expand root filesystem script was created and added. "/etc/expand_rootfs.sh"
 To run this script enter the following commands as root. A reboot is necessary after the commands are run.  
 ```
@@ -63,6 +72,9 @@ Attempting Expand Rootfs...
 Checking Enable File...
 File NOT found! - Skipping expansion of root filesystem...
 ```
+
+This has been tested with 16GB, 8GB, and 4GB SD cards.  
+  
 # Documentation  
 Please read the buildroot manual before creating issues with building:  
 https://buildroot.org/downloads/manual/manual.html  

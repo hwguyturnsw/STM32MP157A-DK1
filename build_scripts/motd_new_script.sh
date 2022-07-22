@@ -7,12 +7,14 @@ echo $build > build
 
 echo "Making MOTD..."
 echo "Going back to find version numbers in buildroot..."
-cd ../trunk/buildroot-2022.02.3
+cd ../branches/stm32_0.2_dev/buildroot-2022.02.3 #Temp for development.
+#cd ../trunk/buildroot-2022.02.3 #Keep for when merged back into trunk.
 #Version Variables
 kernelversion=$(cat .config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 ubootversion=$(cat .config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 #svnrev=$(svn info | grep "Revision: " | sed 's/[^0-9]//g')
-build=$(cat ../../build_scripts/build)
+build=$(cat ../../../build_scripts/build) #Temp for development.
+#build=$(cat ../../build_scripts/build) #Keep for when merged back into trunk.
 major="0"
 minor="2"
 gitHEAD=$(git rev-parse HEAD)
@@ -49,7 +51,7 @@ echo "**************************************************************************
 echo "" >> motd
 echo "***************************************************" >> motd
 echo "Welcome to the STM32 Buildroot Image" >> motd
-echo "Version: $major.$minor.$build" >> motd
+echo "Version: $major.$minor.$build""_dev" >> motd
 echo "Github ID: $gitHEAD" >> motd
 echo "Build Date: "$(date -u) >> motd
 echo "Build Machine: "$(hostname) >> motd
@@ -59,5 +61,6 @@ echo "Arch: ARMv71 - Cortex A7" >> motd
 echo "***************************************************" >> motd
 echo "" >> motd
 echo "" >> motd
-cd ../../../../../../../build_scripts
+cd ../../../../../../../../build_scripts #Temp for development.
+#cd ../../../../../../../build_scripts #Keep for when merged back into trunk.
 echo "Done!"
