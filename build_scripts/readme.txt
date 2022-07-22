@@ -26,6 +26,8 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
     -Known bugs.
         -Some SD readers will display two disks essentially for one SD card (I haven't figured out why yet.) This will cause the script to see more than one device and exit.
         -Internal SD readers that mount SD cards as "mmcblk" devices will not be seen by this script. Until I can figure this out it is recommended to use a USB to SD reader.
+        -It may be necessary to clean the disk before burning a new image and running expand_rootfs.sh from the STM32 otherwise it could fail.
+        -If you have a roofs partition it will need to be unmounted before cleaning the disk will work correctly. Or you could manually unmount and delete all partitions.
     -Tested Readers.
         -SABRENT USB3 SD reader (http://sabrent.com/products/CR-UMSS) works fine in RHEL9.
         -UGreen 2-in-1 USB 3.0 SD/TF Card Reader (https://www.ugreen.com/collections/usb-card-reader/products/usb-3-0-card-reader-with-sd-tf?variant=31772561866814) works fine in RHEL 8 but not in RHEL 9.
