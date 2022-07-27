@@ -1,6 +1,6 @@
 This readme.txt file is to document the build_scripts directory and explain what each files does.
 First Created: ejc - 08.18.2021
-Last Modified: ejc - 07.22.2022
+Last Modified: ejc - 07.27.2022
 
 Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific lines to your distro of choice.
 
@@ -32,6 +32,8 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
         -SABRENT USB3 SD reader (http://sabrent.com/products/CR-UMSS) works fine in RHEL9.
         -UGreen 2-in-1 USB 3.0 SD/TF Card Reader (https://www.ugreen.com/collections/usb-card-reader/products/usb-3-0-card-reader-with-sd-tf?variant=31772561866814) works fine in RHEL 8 but not in RHEL 9.
         -Dell Precision 3450 internal SD card reader mounts SD cards as "mmcblk" devices and is not recognized by this script.
+        -IOGear GFR204SD SD reader (https://www.amazon.com/IOGEAR-MicroSD-Reader-Writer-GFR204SD/dp/B0046TJG1U) works fine in RHEL 9.
+        -UGreen SD Card Reader USB 3.0 (https://www.amazon.com/UGREEN-Aluminum-Adapter-Windows-Chromebook/dp/B07VDDDPKY) creates duplicate devices, one with 0B in RHEL 9.
 
 -make_backup.sh
     -This script is for making a backup tar.gz of the entire repository and save it to my HOME folder. This is more paranoia than anything. It really won't affect much but I made it for my own peace of mind. It's there, use it if you want to.

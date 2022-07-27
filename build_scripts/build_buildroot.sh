@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Build buildroot for STM32
-#ejc-07.22.2022
+#ejc-07.27.2022
 #
 ##################################################
 #Deactivate the perl extentions if needed...
@@ -108,6 +108,7 @@ if rpm -qa | grep "file" 1> /dev/null ; then
 		echo -ne '[================     ](75%)\r'
 else
 	echo "file not found...install file and come back later..."
+	echo "file must be in /usr/bin/file"
 	exit
 fi
 fi
@@ -141,6 +142,12 @@ else
 	echo "qt5 packages not found...install qt5 and come back later..."
 	exit
 fi
+if rpm -qa | grep "perl-ExtUtils-MakeMaker" 1> /dev/null ; then
+	echo -ne '[=====================](99%)\r'
+else
+	echo "perl-ExtUtils-MakeMaker packages not found...install MakeMaker and come back later..."
+	exit
+fi
 if rpm -qa | grep "gtk2" 1> /dev/null ; then
 	echo -ne '[=====================](100%)\r'
 else
@@ -164,5 +171,5 @@ make clean
 echo "Done cleaning..."
 echo "Building..."
 make
-echo "Done processing build!"
+echo "Done processing build! - No error checking from buildroot exists...check for errors."
 echo "Go burn sd card after build..."
