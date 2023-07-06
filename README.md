@@ -87,6 +87,11 @@ https://buildroot.org/docs.html
   
 # GPG Signatures  
 Signatures can be verified by my public key here:  
+
+## v0.3.x - Release Signing Key
+https://keys.openpgp.org/vks/v1/by-fingerprint/0FE58B0DBB3EEB92050542CB88486956A047C54A
+
+## v0.2.x - Release Signing Key (Expired)
 https://keys.openpgp.org/vks/v1/by-fingerprint/8D4CCC65EDC4E2DA6A6BE571822932C729F9B6D2  
   
 Thanks,  
