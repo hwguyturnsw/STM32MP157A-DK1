@@ -1,3 +1,7 @@
+![GitHub release (with filter)](https://img.shields.io/github/v/release/hwguyturnsw/stm32mp157a-dk1?label=Latest-Release)
+![GitHub all releases](https://img.shields.io/github/downloads/hwguyturnsw/stm32mp157a-dk1/total?label=All-Downloads)
+![GitHub release (by tag)](https://img.shields.io/github/downloads/hwguyturnsw/stm32mp157a-dk1/v0.2.45/total?label=Latest-Release-Downloads)
+
 # STM32MP157A-DK1  
 Buildroot for STM32MP157A-DK1 development kit. https://buildroot.org/  
 See STMicro's website here https://www.st.com/en/evaluation-tools/stm32mp157a-dk1.html  
