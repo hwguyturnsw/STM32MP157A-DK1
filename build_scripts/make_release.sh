@@ -43,12 +43,12 @@ echo "" >> $manifestfile
 ##################################################
 #Insert STM32 Version Information
 ##################################################
-echo "STM32 Information"
+echo "STM32 Information" >> $manifestfile
 echo "**********************" >> $manifestfile
 echo "STM32 Version: $version" >> $manifestfile
-echo "Build Date $creation_date" >> $manifestfile
-echo "Kernel Version $stmkernelversion" >> manifestfile
-echo "U-Boot Version $stmubootversion" >> manifestfile
+echo "Build Date: $creation_date" >> $manifestfile
+echo "Kernel Version: $stmkernelversion" >> $manifestfile
+echo "UBoot Version: $stmubootversion" >> $manifestfile
 echo "**********************" >> $manifestfile
 echo "" >> $manifestfile
 ##################################################
