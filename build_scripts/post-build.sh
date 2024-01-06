@@ -1,6 +1,8 @@
 #!/bin/bash
+#
+#ejc-07.27.2022
+#Last updated: 01.06.2024
 #Post Build Script
-#ejc - 2022
 #STM32MP157A-DK1 Board
 #
 #

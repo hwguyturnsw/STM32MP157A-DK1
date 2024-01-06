@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 #Write SD card for STM32 buildroot image and auto resize the rootfs at image write time.
-#ejc-2022-07.22.2022
+#ejc-07.27.2022
+#Last updated: 01.06.2024
 ##################################################
 #Check for root or sudo access...
 ##################################################
@@ -134,24 +135,24 @@ read -n1 -r -p "Press any non-NUL character to continue...CTRL+C to exit..." key
 #Choose trunk or dev branch SD image...
 ##################################################
 PS3='Pick an image to burn: '
-select opt in Trunk-Image Dev-Branch-Image Release-Image Custom-Image-Dir Clean-Disk Exit; do
+select opt in Main-Image Release-Image Custom-Image-Dir Clean-Disk Exit; do
 	case $opt in
-		"Trunk-Image")
-			echo "You chose Trunk-Image"
-			dd if=../trunk/buildroot-2022.02.3/output/images/sdcard.img of=/dev/$sd_mount_point status=progress
+		"Main-Image")
+			echo "You chose Main-Image"
+			dd if=../buildroot-2022.02.3/output/images/sdcard.img of=/dev/$sd_mount_point status=progress
 			break
 			;;
-		"Dev-Branch-Image")
-			echo "You chose Dev-Branch-Image"
-			cd ../branches/stm32_*_branch_dev/buildroot-2022.02.3
-			dd if=output/images/sdcard.img of=/dev/$sd_mount_point status=progress
-			break
-			;;
+		# "Dev-Branch-Image") #DEPRECATED & REMOVED. KEPT IN FOR ARCHIVAL PUPOSES AS IT IS TRACKED IN OLD BRANCHES.
+		# 	echo "You chose Dev-Branch-Image"
+		# 	cd ../branches/stm32_*_branch_dev/buildroot-2022.02.3
+		# 	dd if=output/images/sdcard.img of=/dev/$sd_mount_point status=progress
+		# 	break
+		# 	;;
 		"Release-Image")
 			echo "You chose Release-Image...make sure you extract your release tar.xz"
 			read -p "Tell me your release version number in the format x.x.xx: " release_ver
 			read -p "Tell me your release date number in the format MM.DD.YYYY: " release_date
-			dd if=../releases/stm32_$release_ver/stm32_$release_ver\_$release_date\_signed/sdcard.img of=/dev/$sd_mount_point status=progress
+			dd if=../release/stm32_$release_ver/stm32_$release_ver\_$release_date\_signed/sdcard.img of=/dev/$sd_mount_point status=progress
 			break
 			;;
 		"Custom-Image-Dir")
@@ -195,7 +196,7 @@ EOF
 	esac
 done
 ##################################################
-#Old script...
+#Old script...#DEPRECATED & REMOVED. KEPT IN FOR ARCHIVAL PUPOSES AS IT IS TRACKED IN OLD BRANCHES.
 ##################################################
 #!/bin/bash
 #

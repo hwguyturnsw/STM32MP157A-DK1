@@ -1,12 +1,13 @@
 #!/bin/bash
 #
 #Generate GitHub release tag
-#2022-ejc-07.22.2022
+#ejc-07.27.2022
+#Last updated: 01.06.2024
 #
 ##################################################
 #Variables
 ##################################################
-version=$(grep Version ../trunk/buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
+version=$(grep Version ../buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
 echo ""
 echo "*******************************************************"
 echo "Don't run this until all sources are committed to main!"

@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+#ejc-07.27.2022
+#Last updated: 01.06.2024
 #Pre build script to embed version with buildroot image as Linux MOTD
 #Buildroot Version Numbering
 build=$(cat build)
@@ -7,14 +10,13 @@ echo $build > build
 
 echo "Making MOTD..."
 echo "Going back to find version numbers in buildroot..."
-cd ../trunk/buildroot-2022.02.3/
+cd ../buildroot-2022.02.3/
 #Version Variables
 kernelversion=$(cat .config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 ubootversion=$(cat .config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
-#svnrev=$(svn info | grep "Revision: " | sed 's/[^0-9]//g')
-build=$(cat ../../build_scripts/build)
+build=$(cat ../build_scripts/build)
 major="0"
-minor="2"
+minor="3"
 gitHEAD=$(git rev-parse HEAD)
 
 
@@ -59,5 +61,5 @@ echo "Arch: ARMv71 - Cortex A7" >> motd
 echo "***************************************************" >> motd
 echo "" >> motd
 echo "" >> motd
-cd ../../../../../../../build_scripts
+cd ../../../../../../build_scripts
 echo "Done!"

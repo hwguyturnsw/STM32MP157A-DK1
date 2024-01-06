@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 #Make new release
-#2022-ejc-07.22.2022
+#ejc-07.27.2022
+#Last updated: 01.06.2024
 #
 ##################################################
 #Variables
@@ -13,31 +14,30 @@ osrelease=$(cat /etc/redhat-release)
 kernelversion=$(uname -r)
 machineid=$(cat /etc/machine-id)
 creation_date=$(date +%m.%d.%Y)
-version=$(grep Version ../trunk/buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
-stmkernelversion=$(cat ../trunk/buildroot-2022.02.3/.config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
-stmubootversion=$(cat ../trunk/buildroot-2022.02.3/.config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
-manifestfile=../../../../releases/stm32_${version}/manifest.txt
-checksumsdir=../../../../releases/stm32_${version}/checksums
+version=$(grep Version ../buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
+stmkernelversion=$(cat ../buildroot-2022.02.3/.config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
+stmubootversion=$(cat ../buildroot-2022.02.3/.config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
+manifestfile=../../../release/stm32_${version}/manifest.txt
+checksumsdir=../../../release/stm32_${version}
 ##################################################
 #Make Release Directory and Checksums Directory
 ##################################################
 echo "Making release directory..."
-cd ../releases
+cd ../release
 mkdir stm32_${version}
 cd stm32_${version}
-mkdir checksums
 ##################################################
 #Creating tar.xz and Signing For Release
 ##################################################
 echo "Creating tar.xz and signing for release..."
-cd ../../trunk/buildroot-2022.02.3/output/images
+cd ../../buildroot-2022.02.3/output/images
 tar -czvf stm32_${version}_${creation_date}_signed.tar.xz *
 echo "Signing release tar.xz..."
 gpg --detach-sign stm32_*_signed.tar.xz
 ##################################################
 #Make Manifest file.
 ##################################################
-echo "Making Manifest Files and Checksums Files..."
+echo "Making Manifest Files and Checksums File..."
 echo "Manifest: $timeanddate" > $manifestfile
 echo "" >> $manifestfile
 ##################################################
@@ -67,55 +67,42 @@ echo "" >> $manifestfile
 #Insert File Hashes
 ##################################################
 echo "File Hashes: " >> $manifestfile
+echo "File Hashes: " > $checksumsdir/checksums.txt
 echo "***************************************************************************************************************************************************" >> $manifestfile
+echo "***************************************************************************************************************************************************" >> $checksumsdir/checksums.txt
 echo "SHA-256 Hashes: " >> $manifestfile
-hashrat -sha256 -t * >> $manifestfile
+echo "SHA-256 Hashes: " >> $checksumsdir/checksums.txt
+openssl dgst --sha256 * >> $manifestfile
+openssl dgst --sha256 * >> $checksumsdir/checksums.txt
 echo "" >> $manifestfile
+echo "" >> $checksumsdir/checksums.txt
 echo "SHA-512 Hashes: " >> $manifestfile
-hashrat -sha512 -t * >> $manifestfile
+echo "SHA-512 Hashes: " >> $checksumsdir/checksums.txt
+openssl dgst --sha512 * >> $manifestfile
+openssl dgst --sha512 * >> $checksumsdir/checksums.txt
 echo "" >> $manifestfile
+echo "" >> $checksumsdir/checksums.txt
 echo "SHA3-512 Hashes: " >> $manifestfile
-rhash --sha3-512 * >> $manifestfile
-echo "" >> $manifestfile
-echo "Whirlpool Hashes: " >> $manifestfile
-hashrat -whirlpool -t * >> $manifestfile
-echo "" >> $manifestfile
-echo "TIGER-192-3 Checksums: " >> $manifestfile
-rhash --tiger * >> $manifestfile
+echo "SHA3-512 Hashes: " >> $checksumsdir/checksums.txt
+openssl dgst --sha3-512 * >> $manifestfile
+openssl dgst --sha3-512 * >> $checksumsdir/checksums.txt
 echo "***************************************************************************************************************************************************" >> $manifestfile
-##################################################
-#Hash into separate files with Hashrat
-##################################################
-echo "Hashing Whirlpool, SHA256 & SHA512..."
-hashrat -whirlpool -t * > $checksumsdir/whirlpool-checksums.txt
-hashrat -sha256 -t * > $checksumsdir/sha256-checksums.txt
-hashrat -sha512 -t * > $checksumsdir/sha512-checksums.txt
-##################################################
-#Hash into separate files with RHash
-##################################################
-echo "Hashing SHA3-512, and TIGER..."
-rhash --sha3-512 * > $checksumsdir/sha3-512-checksums.txt
-rhash --tiger * > $checksumsdir/tiger-192-3-checksums.txt
-##################################################
+echo "***************************************************************************************************************************************************" >> $checksumsdir/checksums.txt
 echo "Done Making Manifest and Checksum Files..."
 ##################################################
 #Move signed tar.xz and change directory
 ##################################################
-mv stm32_${version}_${creation_date}_signed* ../../../../releases/stm32_${version}
-cd ../../../../releases/stm32_${version}
+mv stm32_${version}_${creation_date}_signed* ../../../release/stm32_${version}
+cd ../../../release/stm32_${version}
 ##################################################
 #Sign the manifest
 ##################################################
 echo "Signing manifest..."
 gpg --detach-sign manifest.txt
 ##################################################
-#Change Directory and sign the checksum files
+#Change Directory and sign the checksum file
 ##################################################
 cd checksums
-echo "Signing checksum files..."
-gpg --detach-sign whirlpool-checksums.txt
-gpg --detach-sign sha256-checksums.txt
-gpg --detach-sign sha512-checksums.txt
-gpg --detach-sign sha3-512-checksums.txt
-gpg --detach-sign tiger-192-3-checksums.txt
+echo "Signing checksum file..."
+gpg --detach-sign checksums.txt
 echo "Done"
