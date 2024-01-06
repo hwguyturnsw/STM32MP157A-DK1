@@ -42,3 +42,13 @@
 -Updated README.MD for RHEL based dev system. (Issue #24)
 -Added postbuild.sh build script and added description in build_scrips/readme.txt. (Issue #25)
 Updated README.MD for version number fix. (Issue #26)
+
+05.21.2023
+-Archiving old branch and release files  from 0.2.45. (No Issue #)
+-Updated main page README.MD to add my version numbering scheme. (No Issue #)
+-Updated build_scripts readme.txt file. (No Issue #)
+
+
+-Changed password encoding to SHA-512. (Issue #41)
+-Added STM32 Kernel and U-Boot versions to manifest file. (Issue #42)
+-Updated prerequisite checks in build_scripts. (Issue #43)

@@ -9,7 +9,6 @@ This is for the STM32MP157A-DK1 board but could be used on a custom board as wel
 License GNU GPL v2  
 No warranty is implied by me, Buildroot, or UBoot.  
   
-  
 # Basic Information
 Arch: ARM-Cortex-A7  
 Kernel: v5.15.45  
@@ -21,6 +20,18 @@ Password Encoding: SHA256
 Shell: Bash  
 Users: root, user  
 Password (root & user): test1234  
+
+# My Version Numbering Scheme
+Major.Minor.Build  
+Github ID
+
+Major = Major Build Number - Major development efforts. A zero (0) denotes the build is from the initial development effort.  
+
+Minor = Minor Build Number - The number of builds in a particular major version. Usually bug fixes and minor changes.  
+
+Build = The number of builds since the beginning of development. Always increases even after minor and major builds. If the build number has a "_dev" after the number (so like "22_dev") then that built in a development branch. Probably not a good idea to use this build in production as it may have bugs/vulnerabilities.  
+
+Github ID = The GitHub SHA-1 hash of the repository during the build.  
 
 # Development System
 Currently the build system that I use is a RHEL based system (CentOS 8 Stream) Some of the build scripts reflect this type of configuration. If you do not have a RHEL based system or would like to build on another system you may have to change some of the build scripts to reflect that change. Please see the readme in the build scripts directory for the necessary changes.  

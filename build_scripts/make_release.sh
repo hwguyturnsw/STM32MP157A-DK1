@@ -14,6 +14,8 @@ kernelversion=$(uname -r)
 machineid=$(cat /etc/machine-id)
 creation_date=$(date +%m.%d.%Y)
 version=$(grep Version ../trunk/buildroot-2022.02.3/board/stmicroelectronics/stm32mp157a-dk1/overlay/etc/motd | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')
+stmkernelversion=$(cat ../trunk/buildroot-2022.02.3/.config | grep KERNEL_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
+stmubootversion=$(cat ../trunk/buildroot-2022.02.3/.config | grep UBOOT_VERSION | sed 's/.*"\(.*\)"[^"]*$/\1/')
 manifestfile=../../../../releases/stm32_${version}/manifest.txt
 checksumsdir=../../../../releases/stm32_${version}/checksums
 ##################################################
@@ -41,9 +43,12 @@ echo "" >> $manifestfile
 ##################################################
 #Insert STM32 Version Information
 ##################################################
+echo "STM32 Information"
 echo "**********************" >> $manifestfile
 echo "STM32 Version: $version" >> $manifestfile
 echo "Build Date $creation_date" >> $manifestfile
+echo "Kernel Version $stmkernelversion" >> manifestfile
+echo "U-Boot Version $stmubootversion" >> manifestfile
 echo "**********************" >> $manifestfile
 echo "" >> $manifestfile
 ##################################################

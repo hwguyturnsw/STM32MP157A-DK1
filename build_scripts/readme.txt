@@ -53,5 +53,8 @@ Some scripts are RHEL dependant. If you choose to you can edit the RHEL specific
 -post-build.sh
     -This script is how I modify files in the root filesystem before the system images are created. Currently this is under development and is not called by buildroot or any other script.
 
+-prerequisite_check.sh
+	-This is the dependency check standalone script. Runs automatically in build_buildroot.sh but it's nice to have it in a standalone script to run quick checks. This script will only echo back if there's an error/missing packages, except for the start/end echos and progress bar.
+
 -version.sh - Deprecated & Removed.
     -This script only increments the number in the build file. This is how I keep track of how many builds I've made and is part of the version number in motd_script.sh which relies on this script. It can be run individually but is called when motd_script.sh run as a post build script during the buildroot build process.
