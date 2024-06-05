@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #ejc-07.27.2022
-#Last updated: 01.06.2024
+#Last updated: 06.04.2024
 ##################################################
 #Deactivate the perl extentions if needed...
 ##################################################
@@ -144,13 +144,25 @@ fi
 if rpm -qa | grep "perl-ExtUtils-MakeMaker" 1> /dev/null ; then
 	echo -ne '[======================  ](91%)\r'
 else
-	echo "perl-ExtUtils-MakeMaker packages not found...install MakeMaker and come back later..."
+	echo "perl-ExtUtils-MakeMaker packages not found...install perl-ExtUtils-MakeMaker and come back later..."
 	exit
 fi
 if rpm -qa | grep "perl-FindBin" 1> /dev/null ; then
-	echo -ne '[======================= ](95%)\r'
+	echo -ne '[=====================](99%)\r'
 else
-	echo "perl-FindBin packages not found...install FindBin and come back later..."
+	echo "perl-FindBin packages not found...install perl-FindBin and come back later..."
+	exit
+fi
+if rpm -qa | grep "perl-Thread" 1> /dev/null ; then
+	echo -ne '[=====================](99%)\r'
+else
+	echo "perl-Thread packages not found...install perl-Thread and come back later..."
+	exit
+fi
+if rpm -qa | grep "perl-Thread-Queue" 1> /dev/null ; then
+	echo -ne '[=====================](99%)\r'
+else
+	echo "perl-Thread-Queue packages not found...install perl-Thread-Queue and come back later..."
 	exit
 fi
 if rpm -qa | grep "gtk2" 1> /dev/null ; then
